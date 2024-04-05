@@ -1,0 +1,50 @@
+.header {
+  grid-area: he;
+  height: $header-mobile-h;
+  background-color: blue;
+
+  .nav-links {
+    background-color: green;
+    position: absolute;
+    top: $header-mobile-h;
+    height: calc(100% - $header-mobile-h);
+    max-width: 0;
+    transition: max-width 0.3s ease-in-out;
+
+    .link {
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &[data-is-open="true"] {
+      max-width: 1000px;
+
+      .link {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@include tablet-layout {
+  .header {
+    height: 100%;
+    width: 64px;
+    position: relative;
+
+    .nav-links {
+      max-width: initial;
+      width: 100%;
+
+      .link {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@include desktop-layout {
+  .header {
+    width: 200px;
+  }
+}

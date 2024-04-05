@@ -1,0 +1,21 @@
+.main-layout {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas: "he" "fi" "pa";
+
+  .page-layout {
+    grid-area: pa;
+    background-color: red;
+  }
+
+  @include tablet-layout {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "he pa" "he pa";
+  }
+
+  @include desktop-layout {
+  }
+}

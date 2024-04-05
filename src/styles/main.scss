@@ -1,0 +1,13 @@
+// SETUP
+@import "./setup/mixins";
+@import "./setup/variables";
+
+// BASE
+@import "./base/base";
+@import "./base/layout";
+
+// COMPONENTS
+@import "./components/header";
+@import "./components/filter";
+
+//PAGES
