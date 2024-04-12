@@ -1,0 +1,32 @@
+.container {
+  display: block;
+  cursor: pointer;
+  align-self: center;
+
+  &[data-is-open="true"] {
+    .line:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .line:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
+  .line {
+    display: block;
+    width: 22px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: $primary-color;
+  }
+
+  @include tablet-layout {
+    display: none;
+  }
+}

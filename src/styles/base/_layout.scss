@@ -7,7 +7,7 @@
 
   .page-layout {
     grid-area: pa;
-    background-color: red;
+    background-color: $bg-color;
   }
 
   @include tablet-layout {
