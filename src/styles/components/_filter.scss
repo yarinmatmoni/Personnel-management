@@ -1,4 +1,29 @@
 .filter {
   grid-area: fi;
-  background-color: chocolate;
+  background-color: $bg-white-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+  gap: 10px;
+  width: 100%;
+  max-width: $max-width-t;
+  margin: 0 auto;
+
+  input {
+    width: 100%;
+  }
+
+  .sort-container {
+    position: relative;
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  @include tablet-layout {
+    max-width: $max-width-d;
+  }
 }

@@ -10,11 +10,15 @@ a {
   text-decoration: none;
 }
 
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: $black-color;
+}
+
 input,
 textarea {
   outline: none;
-}
-
-body {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  border: none;
+  padding: 6px;
+  font-size: 16px;
 }
