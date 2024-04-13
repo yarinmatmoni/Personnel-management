@@ -1,3 +1,5 @@
+import { utilService } from "./util.service";
+
 interface EntityId {
   _id: string;
 }
@@ -26,10 +28,10 @@ const get = async <T extends EntityId>(
 
 const post = async <T extends EntityId>(entityType: string, entityToAdd: T) => {
   const newEntity = { ...entityToAdd };
-  newEntity._id = _makeId();
+  newEntity._id = utilService.makeId();
   const entities = await query<T>(entityType);
   entities.push(newEntity);
-  _saveToLocalStorage(entityType, entities);
+  utilService.saveToLocalStorage(entityType, entities);
   return newEntity;
 };
 
@@ -46,7 +48,7 @@ const put = async <T extends EntityId>(
     );
 
   entities.splice(index, 1, updatedEntity);
-  _saveToLocalStorage(entityType, entities);
+  utilService.saveToLocalStorage(entityType, entities);
   return updatedEntity;
 };
 
@@ -61,24 +63,7 @@ const remove = async <T extends EntityId>(
     throw new Error(`Remove filed, cannot find entity with id: ${entityId}`);
 
   entities.splice(index, 1);
-  _saveToLocalStorage(entityType, entities);
-};
-
-//Private functions
-const _makeId = (): string => {
-  let text = "";
-  const possible =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-  for (let i = 0; i < length; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-
-  return text;
-};
-
-const _saveToLocalStorage = <T>(entityType: string, entities: T[]) => {
-  localStorage.setItem(entityType, JSON.stringify(entities));
+  utilService.saveToLocalStorage(entityType, entities);
 };
 
 export const storageService = { query, get, post, put, remove };
