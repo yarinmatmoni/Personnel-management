@@ -8,12 +8,17 @@
   .page-layout {
     grid-area: pa;
     background-color: $bg-color;
+    padding: 10px 20px;
   }
 
   @include tablet-layout {
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas: "he pa" "he pa";
+
+    .page-layout {
+      padding: 20px;
+    }
   }
 
   @include desktop-layout {
