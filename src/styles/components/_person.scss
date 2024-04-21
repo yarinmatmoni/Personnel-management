@@ -1,0 +1,25 @@
+.person {
+  background: $bg-white-color;
+  padding: 16px 8px;
+  border-radius: 10px;
+  border: 1px solid $border-color;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px;
+
+  .number {
+    color: $gray-color;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 17.64px;
+    padding: 8px;
+  }
+
+  .personal-data,
+  .professional-data {
+    display: grid;
+    gap: 6px;
+  }
+}

@@ -9,6 +9,7 @@
     grid-area: pa;
     background-color: $bg-color;
     padding: 10px 20px;
+    height: calc(100vh - $header-mobile-h);
   }
 
   @include tablet-layout {
@@ -18,6 +19,7 @@
 
     .page-layout {
       padding: 20px;
+      height: 100vh;
     }
   }
 

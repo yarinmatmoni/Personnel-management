@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   padding: 10px 20px;
+  z-index: 1;
 
   .nav-links {
     background-color: $bg-white-color;
@@ -113,10 +114,15 @@
 
 @include desktop-layout {
   .header {
-    width: 150px;
+    width: 200px;
 
-    .nav-links .links-container .link .link-name {
-      display: initial;
+    .nav-links .links-container {
+      justify-content: initial;
+      padding: 30px 20px;
+
+      .link .link-name {
+        display: initial;
+      }
     }
   }
 }

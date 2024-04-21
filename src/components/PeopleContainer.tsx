@@ -3,10 +3,12 @@ import { PersonType } from "../types/types";
 
 export const PeopleContainer = ({ people }: { people: PersonType[] }) => {
   return (
-    <div>
-      {people.map((person) => (
-        <Person key={person.id} />
+    <ul className="people-container">
+      {people.map((person, index) => (
+        <li key={person.id}>
+          <Person person={person} index={index} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
