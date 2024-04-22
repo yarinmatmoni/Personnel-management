@@ -9,3 +9,21 @@
     @content;
   }
 }
+
+@mixin btn-primary {
+  background-color: $primary-color;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15.12px;
+  text-align: center;
+  color: $bg-white-color;
+  height: 36px;
+
+  @include desktop-layout {
+    height: 44px;
+    font-size: 14px;
+    line-height: 20.16px;
+  }
+}

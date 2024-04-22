@@ -30,14 +30,14 @@ const _cratePerson = (index: number): PersonType => {
   return {
     id: utilService.makeId(),
     personalData: {
-      fullName: `Full Name ${index}`,
-      address: `Address ${index}`,
-      phoneNumber: `Phone Number ${index}`,
+      fullName: `${index}שם מלא`,
+      address: `${index}כתובת מגורים 81`,
+      phoneNumber: `${index}0528024320`,
     },
     professionalData: {
-      role: `Role ${index}`,
+      role: `${index}מפקד`,
       division: _randomDivision(),
-      class: `Class ${index}`,
+      class: `${index}`,
       courses: [],
     },
   };

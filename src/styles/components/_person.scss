@@ -1,12 +1,11 @@
 .person {
   background: $bg-white-color;
-  padding: 16px 8px;
+  padding: 16px;
   border-radius: 10px;
   border: 1px solid $border-color;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: auto 1fr auto;
-  align-items: center;
   gap: 8px;
 
   .number {
@@ -14,12 +13,27 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 17.64px;
-    padding: 8px;
+    padding: 4px 0;
   }
 
   .personal-data,
   .professional-data {
     display: grid;
     gap: 6px;
+
+    .field-name {
+      font-weight: 700;
+      margin-left: 2px;
+    }
+  }
+
+  .person-details {
+    display: grid;
+    gap: 6px;
+  }
+
+  button {
+    @include btn-primary;
+    align-self: flex-end;
   }
 }

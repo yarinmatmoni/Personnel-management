@@ -1,6 +1,6 @@
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { Dashboard, People } from "./pages/index";
-import { Header } from "./components/index";
+import { Header, CreatePerson } from "./components/index";
 
 export const App = () => {
   return (
@@ -10,7 +10,9 @@ export const App = () => {
         <div className="page-layout">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/people" element={<People />} />
+            <Route path="/people" element={<People />}>
+              <Route path="/people/create" element={<CreatePerson />} />
+            </Route>
           </Routes>
         </div>
       </Router>
