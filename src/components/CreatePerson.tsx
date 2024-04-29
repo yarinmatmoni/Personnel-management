@@ -17,45 +17,21 @@ export const CreatePerson = () => {
           <label htmlFor="address">כתובת:</label>
           <input type="text" name="address" id="address" />
         </div>
-        <div className="form-item">
-          <label htmlFor="role">תפקיד:</label>
-          <select name="role" id="role">
-            <option value="" disabled selected>
-              בחר תפקיד
-            </option>
-            {peopleService.getRoleOptions().map((role, index) => (
-              <option key={`${role}_${index}`} value={role}>
-                {role}
+        {peopleService.getCreatePersonOptions().map((select) => (
+          <div key={select.id} className="form-item">
+            <label htmlFor={select.id}>{`${select.label}:`}</label>
+            <select name={select.id} id={select.id}>
+              <option disabled selected>
+                {select.unselectedOption}
               </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-item">
-          <label htmlFor="division">מחלקה:</label>
-          <select name="division" id="division">
-            <option value="" disabled selected>
-              בחר מחלקה
-            </option>
-            {peopleService.getDivisionOptions().map((division, index) => (
-              <option key={`${division}_${index}`} value={division}>
-                {division}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-item">
-          <label htmlFor="class">כיתה:</label>
-          <select name="class" id="class">
-            <option value="" disabled selected>
-              בחר כיתה
-            </option>
-            {peopleService.getClassOptions().map((classOption, index) => (
-              <option key={`${classOption}_${index}`} value={classOption}>
-                {classOption}
-              </option>
-            ))}
-          </select>
-        </div>
+              {select.options.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+        ))}
       </form>
     </Modal>
   );

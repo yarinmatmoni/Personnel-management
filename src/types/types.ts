@@ -12,3 +12,10 @@ export type PersonType = {
     courses: string[];
   };
 };
+
+export type CreatePersonOptionsType = {
+  id: string;
+  label: string;
+  unselectedOption: string;
+  options: string[];
+};

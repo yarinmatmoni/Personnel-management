@@ -1,6 +1,6 @@
 import { utilService } from "./util.service";
 import { storageService } from "./storage-service.service";
-import { PersonType } from "../types/types";
+import { PersonType, CreatePersonOptionsType } from "../types/types";
 
 const STORAGE_KEY = "people";
 
@@ -9,16 +9,27 @@ const getPeople = async () => {
   return people;
 };
 
-const getRoleOptions = () => {
-  return ['מ"פ', 'סמ"פ', 'מ"מ', "סמל", 'מ"כ'];
-};
-
-const getDivisionOptions = () => {
-  return ["סגל", "מחלקה 1", "מחלקה 2", "מחלקה 3"];
-};
-
-const getClassOptions = () => {
-  return ["כיתה א", "כיתה ב", "כיתה ג"];
+const getCreatePersonOptions: () => CreatePersonOptionsType[] = () => {
+  return [
+    {
+      id: "role",
+      label: "תפקיד",
+      unselectedOption: "בחר תפקיד",
+      options: ['מ"פ', 'סמ"פ', 'מ"מ', "סמל", 'מ"כ'],
+    },
+    {
+      id: "division",
+      label: "מחלקה",
+      unselectedOption: "בחר מחלקה",
+      options: ["סגל", "מחלקה 1", "מחלקה 2", "מחלקה 3"],
+    },
+    {
+      id: "class",
+      label: "כיתה",
+      unselectedOption: "בחר כיתה",
+      options: ["כיתה א", "כיתה ב", "כיתה ג"],
+    },
+  ];
 };
 
 //Private functions
@@ -59,7 +70,5 @@ _crateDemoData();
 
 export const peopleService = {
   getPeople,
-  getRoleOptions,
-  getDivisionOptions,
-  getClassOptions,
+  getCreatePersonOptions,
 };
