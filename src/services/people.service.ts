@@ -9,6 +9,18 @@ const getPeople = async () => {
   return people;
 };
 
+const getRoleOptions = () => {
+  return ['מ"פ', 'סמ"פ', 'מ"מ', "סמל", 'מ"כ'];
+};
+
+const getDivisionOptions = () => {
+  return ["סגל", "מחלקה 1", "מחלקה 2", "מחלקה 3"];
+};
+
+const getClassOptions = () => {
+  return ["כיתה א", "כיתה ב", "כיתה ג"];
+};
+
 //Private functions
 const _crateDemoData = () => {
   const people = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || [];
@@ -45,4 +57,9 @@ const _cratePerson = (index: number): PersonType => {
 
 _crateDemoData();
 
-export const peopleService = { getPeople };
+export const peopleService = {
+  getPeople,
+  getRoleOptions,
+  getDivisionOptions,
+  getClassOptions,
+};
