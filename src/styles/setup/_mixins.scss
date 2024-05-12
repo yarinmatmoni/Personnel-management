@@ -10,8 +10,8 @@
   }
 }
 
-@mixin btn-primary {
-  background-color: $primary-color;
+@mixin btn-style($bg-color) {
+  background-color: $bg-color;
   border-radius: 4px;
   padding: 10px 20px;
   font-weight: 600;

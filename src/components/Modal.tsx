@@ -8,8 +8,10 @@ export const Modal = ({ children }: { children: React.ReactNode }) => {
       <div className="modal-container">
         {children}
         <div className="options">
-          <button>שמירה</button>
-          <button onClick={() => navigate(-1)}>ביטול</button>
+          <button className="save-btn">שמירה</button>
+          <button className="cancel-btn" onClick={() => navigate(-1)}>
+            ביטול
+          </button>
         </div>
       </div>
     </div>

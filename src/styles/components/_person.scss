@@ -1,6 +1,6 @@
 .person {
   background: $bg-white-color;
-  padding: 16px;
+  padding: 10px;
   border-radius: 10px;
   border: 1px solid $border-color;
   display: grid;
@@ -30,10 +30,11 @@
   .person-details {
     display: grid;
     gap: 6px;
+    font-size: 14px;
   }
 
   button {
-    @include btn-primary;
+    @include btn-style($primary-color);
     align-self: flex-end;
   }
 }
