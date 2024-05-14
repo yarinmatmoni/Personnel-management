@@ -7,14 +7,14 @@ export type PersonType = {
   };
   professionalData: {
     role: string;
-    division: number;
-    class: string;
-    courses: string[];
+    division: string;
+    class?: string;
+    courses?: string[];
   };
 };
 
 export type CreatePersonOptionsType = {
-  id: string;
+  name: string;
   label: string;
   unselectedOption: string;
   options: string[];

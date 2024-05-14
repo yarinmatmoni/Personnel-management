@@ -16,6 +16,10 @@ export const People = () => {
     setPeople(await peopleService.getPeople());
   };
 
+  const addPerson = () => {
+    console.log("ok");
+  };
+
   return (
     <div className="people-page">
       <Filter />
@@ -23,7 +27,7 @@ export const People = () => {
       <NavLink to={"/people/create"} className="new-person">
         <img src={addIcon} alt="add icon" />
       </NavLink>
-      <Outlet />
+      <Outlet context={{ addPerson }} />
     </div>
   );
 };

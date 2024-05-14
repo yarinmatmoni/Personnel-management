@@ -12,24 +12,28 @@ const getPeople = async () => {
 const getCreatePersonOptions: () => CreatePersonOptionsType[] = () => {
   return [
     {
-      id: "role",
+      name: "role",
       label: "תפקיד",
       unselectedOption: "בחר תפקיד",
       options: ['מ"פ', 'סמ"פ', 'מ"מ', "סמל", 'מ"כ'],
     },
     {
-      id: "division",
+      name: "division",
       label: "מחלקה",
       unselectedOption: "בחר מחלקה",
       options: ["סגל", "מחלקה 1", "מחלקה 2", "מחלקה 3"],
     },
     {
-      id: "class",
+      name: "class",
       label: "כיתה",
       unselectedOption: "בחר כיתה",
       options: ["כיתה א", "כיתה ב", "כיתה ג"],
     },
   ];
+};
+
+const getDefaultForm = () => {
+  return { fullName: "", phoneNumber: "", address: "" };
 };
 
 //Private functions
@@ -45,8 +49,8 @@ const _crateDemoData = () => {
   utilService.saveToLocalStorage(STORAGE_KEY, people);
 };
 
-const _randomDivision = (totalDivisions: number = 3): number => {
-  return Math.floor(Math.random() * totalDivisions) + 1;
+const _randomDivision = (totalDivisions: number = 3): string => {
+  return (Math.floor(Math.random() * totalDivisions) + 1).toString();
 };
 
 const _cratePerson = (index: number): PersonType => {
@@ -71,4 +75,5 @@ _crateDemoData();
 export const peopleService = {
   getPeople,
   getCreatePersonOptions,
+  getDefaultForm,
 };
