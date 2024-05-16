@@ -16,8 +16,8 @@ export const People = () => {
     setPeople(await peopleService.getPeople());
   };
 
-  const addPerson = () => {
-    console.log("ok");
+  const addPerson = (personToSave: PersonType) => {
+    console.log(personToSave);
   };
 
   return (

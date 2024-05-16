@@ -6,13 +6,13 @@ import { PersonType } from "../types/types";
 
 export const CreatePerson = () => {
   const navigate = useNavigate();
-  const { addPerson }: { addPerson: () => void } = useOutletContext();
+  const { addPerson }: { addPerson: (person: PersonType) => void } = useOutletContext();
   const [editForm, setEditForm] = useState(peopleService.getDefaultForm());
 
   const handleOnChange = (
     event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    let { value, name: fieldName } = event.target;
+    const { value, name: fieldName } = event.target;
     setEditForm((prevForm) => ({ ...prevForm, [fieldName]: value }));
   };
 
@@ -68,7 +68,7 @@ export const CreatePerson = () => {
         ))}
       </form>
       <div className="options">
-        <button className="save-btn" onClick={() => addPerson()}>
+        <button className="save-btn" onClick={() => addPerson(editForm)}>
           שמירה
         </button>
         <button className="cancel-btn" onClick={() => navigate(-1)}>

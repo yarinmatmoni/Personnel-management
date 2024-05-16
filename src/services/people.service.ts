@@ -56,17 +56,13 @@ const _randomDivision = (totalDivisions: number = 3): string => {
 const _cratePerson = (index: number): PersonType => {
   return {
     id: utilService.makeId(),
-    personalData: {
       fullName: `${index}שם מלא`,
       address: `${index}כתובת מגורים 81`,
       phoneNumber: `${index}0528024320`,
-    },
-    professionalData: {
       role: `${index}מפקד`,
       division: _randomDivision(),
       class: `${index}`,
       courses: [],
-    },
   };
 };
 

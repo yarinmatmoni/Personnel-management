@@ -1,16 +1,12 @@
 export type PersonType = {
-  id: string;
-  personalData: {
-    fullName: string;
-    address: string;
-    phoneNumber: string;
-  };
-  professionalData: {
-    role: string;
-    division: string;
-    class?: string;
-    courses?: string[];
-  };
+  id?: string;
+  fullName?: string;
+  address?: string;
+  phoneNumber?: string;
+  role?: string;
+  division?: string;
+  class?: string;
+  courses?: string[];
 };
 
 export type CreatePersonOptionsType = {
