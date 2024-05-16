@@ -1,7 +1,7 @@
 import { utilService } from "./util.service";
 
 interface EntityId {
-  _id: string;
+  _id?: string;
 }
 
 const query = <T>(entityType: string, delay: number = 200): Promise<T[]> => {

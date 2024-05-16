@@ -36,6 +36,10 @@ const getDefaultForm = () => {
   return { fullName: "", phoneNumber: "", address: "" };
 };
 
+const addNewPerson = async (personToSave: PersonType) => {
+  const newPerson = await storageService.post(STORAGE_KEY,personToSave);
+  return newPerson;
+}
 //Private functions
 const _crateDemoData = () => {
   const people = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || [];
@@ -55,14 +59,14 @@ const _randomDivision = (totalDivisions: number = 3): string => {
 
 const _cratePerson = (index: number): PersonType => {
   return {
-    id: utilService.makeId(),
-      fullName: `${index}שם מלא`,
-      address: `${index}כתובת מגורים 81`,
-      phoneNumber: `${index}0528024320`,
-      role: `${index}מפקד`,
-      division: _randomDivision(),
-      class: `${index}`,
-      courses: [],
+    _id: utilService.makeId(),
+    fullName: `${index}שם מלא`,
+    address: `${index}כתובת מגורים 81`,
+    phoneNumber: `${index}0528024320`,
+    role: `${index}מפקד`,
+    division: _randomDivision(),
+    class: `${index}`,
+    courses: [],
   };
 };
 
@@ -72,4 +76,5 @@ export const peopleService = {
   getPeople,
   getCreatePersonOptions,
   getDefaultForm,
+  addNewPerson
 };

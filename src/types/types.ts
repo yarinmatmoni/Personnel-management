@@ -1,5 +1,5 @@
 export type PersonType = {
-  id?: string;
+  _id?: string;
   fullName?: string;
   address?: string;
   phoneNumber?: string;

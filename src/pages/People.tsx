@@ -16,8 +16,9 @@ export const People = () => {
     setPeople(await peopleService.getPeople());
   };
 
-  const addPerson = (personToSave: PersonType) => {
-    console.log(personToSave);
+  const addPerson = async (personToSave: PersonType) => {
+   const newPerson = await peopleService.addNewPerson(personToSave);
+   setPeople((prevData) => [...prevData,newPerson]);
   };
 
   return (

@@ -5,7 +5,7 @@ export const PeopleContainer = ({ people }: { people: PersonType[] }) => {
   return (
     <ul className="people-container">
       {people.map((person, index) => (
-        <li key={person.id}>
+        <li key={person._id}>
           <Person person={person} index={index} />
         </li>
       ))}

@@ -16,6 +16,11 @@ export const CreatePerson = () => {
     setEditForm((prevForm) => ({ ...prevForm, [fieldName]: value }));
   };
 
+  const handleOnSubmit = () => {
+    addPerson(editForm);
+    navigate(-1);
+  }
+
   return (
     <Modal>
       <form className="create-person">
@@ -68,7 +73,7 @@ export const CreatePerson = () => {
         ))}
       </form>
       <div className="options">
-        <button className="save-btn" onClick={() => addPerson(editForm)}>
+        <button className="save-btn" onClick={() => handleOnSubmit()}>
           שמירה
         </button>
         <button className="cancel-btn" onClick={() => navigate(-1)}>
