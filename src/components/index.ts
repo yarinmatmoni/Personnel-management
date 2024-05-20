@@ -5,6 +5,8 @@ import { PeopleContainer } from "./PeopleContainer";
 import { Person } from "./Person";
 import { CreatePerson } from "./CreatePerson";
 import { Modal } from "./Modal";
+import { Approve } from './Approve';
+import { PersonDetails } from './PersonDetails';
 
 export {
   Header,
@@ -14,4 +16,6 @@ export {
   Person,
   CreatePerson,
   Modal,
+  Approve,
+  PersonDetails
 };

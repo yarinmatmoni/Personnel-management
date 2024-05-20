@@ -7,6 +7,14 @@
   grid-auto-flow: column;
   grid-template-columns: auto 1fr auto;
   gap: 8px;
+  position: relative;
+
+  .delete-icon{
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
 
   .number {
     color: $gray-color;

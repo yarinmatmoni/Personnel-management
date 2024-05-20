@@ -12,8 +12,8 @@ export const CreatePerson = () => {
   const handleOnChange = (
     event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { value, name: fieldName } = event.target;
-    setEditForm((prevForm) => ({ ...prevForm, [fieldName]: value }));
+    const { value, name: fieldName,type } = event.target;
+    setEditForm((prevForm) => ({ ...prevForm, [fieldName]: type === 'number' ? +value : value }));
   };
 
   const handleOnSubmit = () => {
@@ -24,6 +24,15 @@ export const CreatePerson = () => {
   return (
     <Modal>
       <form className="create-person">
+        <div className="form-item">
+          <label htmlFor="fullName">מספר אישי:</label>
+          <input
+            type="text"
+            name="personalNumber"
+            id="personalNumber"
+            onChange={handleOnChange}
+          />
+        </div>
         <div className="form-item">
           <label htmlFor="fullName">שם מלא:</label>
           <input

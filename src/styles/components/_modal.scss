@@ -7,7 +7,7 @@
   left: 0;
   top: 0;
   z-index: 2;
-
+  
   .modal-container {
     background-color: $bg-color;
     position: absolute;
@@ -24,11 +24,15 @@
       display: flex;
       justify-content: space-evenly;
 
-      .save-btn {
+      .save-btn, .edit-btn {
         @include btn-style($primary-color);
       }
 
-      .cancel-btn {
+      .cancel-btn{
+        @include btn-style($gray-btn-color);
+      }
+
+      .delete-btn {
         @include btn-style($danger-color);
       }
     }

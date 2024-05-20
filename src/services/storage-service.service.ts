@@ -14,9 +14,7 @@ const get = async <T extends EntityId>(
   entityId: string
 ) => {
   const entities = await query<T>(entityType);
-  const entity = entities.find((e) => {
-    e._id === entityId;
-  });
+  const entity = entities.find((e) => e._id === entityId);
 
   if (!entity)
     throw new Error(

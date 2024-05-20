@@ -1,14 +1,19 @@
+import {useNavigate} from 'react-router-dom';
 import { PersonType } from "../types/types";
+import deleteIcon from '../assets/delete.svg';
 
 export const Person = ({
   person,
-  index,
+  index
 }: {
-  person: PersonType;
-  index: number;
+  person: PersonType,
+  index: number,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="person">
+      <img src={deleteIcon} alt="delete" className='delete-icon' onClick={() => navigate(`/people/approve` , {state: { _id: person._id, fullName: person.fullName }})}/>
       <div className="number">{index + 1}.</div>
       <div className="person-details">
         <div className="personal-data">
@@ -36,7 +41,7 @@ export const Person = ({
           </div>
         </div>
       </div>
-      <button>לפרטים</button>
+      <button onClick={() => navigate(`/people/details/${person._id}`)}>לפרטים</button>
     </div>
   );
 };
