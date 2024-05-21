@@ -15,7 +15,7 @@ const getCreatePersonOptions: () => CreatePersonOptionsType[] = () => {
       name: "role",
       label: "תפקיד",
       unselectedOption: "בחר תפקיד",
-      options: ['מ"פ', 'סמ"פ', 'מ"מ', "סמל", 'מ"כ'],
+      options: ['מ"פ', 'סמ"פ', 'מ"מ', "סמל", 'מ"כ' , 'לוחם'],
     },
     {
       name: "division",
@@ -35,6 +35,27 @@ const getCreatePersonOptions: () => CreatePersonOptionsType[] = () => {
 const getDefaultForm = () => {
   return { fullName: "", phoneNumber: "", address: "" };
 };
+
+const getKeyLabel = (key: string) => {
+  switch(key){
+    case 'fullName': 
+      return 'שם מלא';
+    case 'phoneNumber':
+      return 'מספר טלפון'
+    case 'address':
+      return 'כתובת'
+    case 'personalNumber':
+      return 'מספר אישי';
+    case 'role':
+      return 'תפקיד';
+    case 'division':
+      return 'מחלקה';
+    case 'class':
+      return 'כיתה';
+    default:
+      return;
+  }
+}
 
 const addNewPerson = async (personToSave: PersonType) => {
   const newPerson = await storageService.post(STORAGE_KEY,personToSave);
@@ -87,6 +108,7 @@ export const peopleService = {
   getPeople,
   getCreatePersonOptions,
   getDefaultForm,
+  getKeyLabel,
   addNewPerson,
   getPerson,
   removePerson

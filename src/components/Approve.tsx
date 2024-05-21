@@ -1,5 +1,6 @@
 import { Modal } from "./index";
 import { useOutletContext , useLocation ,useNavigate } from "react-router-dom";
+import dangerIcon from '../assets/danger.svg';
 
 export const Approve = () => {
   const navigate = useNavigate();
@@ -11,14 +12,20 @@ export const Approve = () => {
     navigate(-1);
   }
   
+  if(!person) return;
   return (
     <Modal>
         <div className="approve-container">
-            <div className="title">האם אתה  בטוח?</div>
-            <p>{`אתה עומד למחוק את ${person.fullName} האם אתה בטוח?`}</p>
+            <div className="title">
+                <img src={dangerIcon} alt="danger" />
+                האם אתה  בטוח?
+            </div>
+            <p>
+                {`האם למחוק את ${person.fullName}?`}
+            </p>
             <div className="options">
-                <button onClick={() => onRemovePerson()}>מחיקה</button>
-                <button onClick={() => navigate(-1) }>ביטול</button>
+                <button className="delete-btn" onClick={() => onRemovePerson()}>מחיקה</button>
+                <button className="cancel-btn" onClick={() => navigate(-1) }>ביטול</button>
             </div>
         </div>
     </Modal>

@@ -27,3 +27,11 @@
     line-height: 20.16px;
   }
 }
+
+@mixin title-style($title-type){
+  @if $title-type == 'primary-title' {
+    font-size: 24px;
+    font-weight: bold;
+    color: $primary-color;
+  }
+}

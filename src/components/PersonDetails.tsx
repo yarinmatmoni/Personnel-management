@@ -3,8 +3,6 @@ import { useParams , useNavigate } from 'react-router-dom';
 import { Modal } from "./index";
 import { PersonType } from "../types/types";
 import { peopleService } from "../services/people.service";
-import profileIcon from '../assets/profile.svg';
-import professionalIcon from '../assets/award.svg';
 
 export const PersonDetails = () => {
   const {id} = useParams();
@@ -29,33 +27,18 @@ export const PersonDetails = () => {
   return (
     <Modal>
         <div className="details">
-            <div className="person-info">
-                <div className="info-section">
-                    <div className="title">
-                        <img src={profileIcon} alt="profile" />
-                        מידע אישי
+           <div className="title">פרטים נוספים</div>
+           <div className="details-container">
+                {Object.entries(person).filter(([key]) => key !== '_id').map(([key, value]) => (
+                    <div className="info-item" key={key}>
+                        <label htmlFor={key}>{peopleService.getKeyLabel(key)}:</label>
+                        <input type="text" id={key} value={value} readOnly />
                     </div>
-                    <div className="personal-info">
-                        <div className="info-item">{person.fullName}</div>
-                        <div className="info-item">{person.personalNumber}</div>
-                        <div className="info-item">{person.address}</div>
-                        <div className="info-item">{person.phoneNumber}</div>
-                    </div>
-                </div>
-                <div className="info-section">
-                    <div className="role-info">
-                        <div className="title">
-                            <img src={professionalIcon} alt="professional" />
-                            מידע מקצועי
-                        </div>
-                        <div className="info-item">{person.role}</div>
-                        <div className="info-item">{person.division}</div>
-                        <div className="info-item">{person.class}</div>
-                    </div>
-                </div>
-            </div>
+                ))}
+           </div>
             <div className="options">
-                <button className="cancel-btn" onClick={() => navigate(-1)}>ביטול</button>
+                <button className="edit-btn">עריכה</button>
+                <button className="cancel-btn" onClick={() => navigate(-1)}>חזרה</button>
             </div>
         </div>
     </Modal>

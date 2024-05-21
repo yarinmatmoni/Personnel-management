@@ -19,22 +19,5 @@
     width: 80vw;
     display: grid;
     gap: 16px;
-
-    .options {
-      display: flex;
-      justify-content: space-evenly;
-
-      .save-btn, .edit-btn {
-        @include btn-style($primary-color);
-      }
-
-      .cancel-btn{
-        @include btn-style($gray-btn-color);
-      }
-
-      .delete-btn {
-        @include btn-style($danger-color);
-      }
-    }
   }
 }
