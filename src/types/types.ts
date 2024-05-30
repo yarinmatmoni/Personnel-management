@@ -9,10 +9,3 @@ export type PersonType = {
   class?: string;
   courses?: string[];
 };
-
-export type CreatePersonOptionsType = {
-  name: string;
-  label: string;
-  unselectedOption: string;
-  options: string[];
-};

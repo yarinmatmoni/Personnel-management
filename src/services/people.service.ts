@@ -1,6 +1,6 @@
 import { utilService } from "./util.service";
 import { storageService } from "./storage-service.service";
-import { PersonType, CreatePersonOptionsType } from "../types/types";
+import { PersonType } from "../types/types";
 
 const STORAGE_KEY = "people";
 
@@ -9,31 +9,46 @@ const getPeople = async () => {
   return people;
 };
 
-const getCreatePersonOptions: () => CreatePersonOptionsType[] = () => {
+const getInputs = () => {
+  return [
+    {
+      name: 'fullName',
+      type: 'text'
+    },{
+      name: 'personalNumber',
+      type: 'text'
+    },{
+      name: 'phoneNumber',
+      type: 'tel'
+    },{
+      name: 'address',
+      type: 'text'
+    }
+  ];
+}
+
+const getSelects = () => {
   return [
     {
       name: "role",
-      label: "תפקיד",
       unselectedOption: "בחר תפקיד",
       options: ['מ"פ', 'סמ"פ', 'מ"מ', "סמל", 'מ"כ' , 'לוחם'],
     },
     {
       name: "division",
-      label: "מחלקה",
       unselectedOption: "בחר מחלקה",
       options: ["סגל", "מחלקה 1", "מחלקה 2", "מחלקה 3"],
     },
     {
       name: "class",
-      label: "כיתה",
       unselectedOption: "בחר כיתה",
       options: ["כיתה א", "כיתה ב", "כיתה ג"],
     },
   ];
-};
+}
 
 const getDefaultForm = () => {
-  return { fullName: "", phoneNumber: "", address: "" };
+  return { fullName: "", phoneNumber: "", address: "", role: "", division: "", name: ""};
 };
 
 const getKeyLabel = (key: string) => {
@@ -106,7 +121,8 @@ _crateDemoData();
 
 export const peopleService = {
   getPeople,
-  getCreatePersonOptions,
+  getInputs,
+  getSelects,
   getDefaultForm,
   getKeyLabel,
   addNewPerson,

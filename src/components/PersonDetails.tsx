@@ -37,7 +37,7 @@ export const PersonDetails = () => {
                 ))}
            </div>
             <div className="options">
-                <button className="edit-btn">עריכה</button>
+                <button className="edit-btn" onClick={() => navigate(`/people/create/${person._id}`)}>עריכה</button>
                 <button className="cancel-btn" onClick={() => navigate(-1)}>חזרה</button>
             </div>
         </div>

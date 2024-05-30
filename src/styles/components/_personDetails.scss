@@ -20,6 +20,14 @@
                 font-size: 14px;
                 font-weight: 700;
             }
+
+            input,
+            select {
+              padding: 6px;
+              border-radius: 8px;
+              border: 1px solid $light-blue-color;
+              width: 100%;
+            }
         }
     }
     

@@ -1,23 +1,49 @@
-.create-person {
+.crate-person-container{
   display: grid;
   gap: 12px;
-  overflow: auto;
-  max-height: 70vh;
 
-    .form-item {
-      display: grid;
-      gap: 6px;
+  .title{
+    @include title-style('primary-title');
+  }
   
-      label {
-        font-size: 16px;
-      }
-  
-      input,
-      select {
-        padding: 10px;
-        border-radius: 8px;
-        border: 1px solid $light-blue-color;
-        width: 100%;
+  .create-person {
+    overflow: auto;
+    max-height: 60vh;
+    display: grid;
+    gap: 6px;
+
+      .form-item {
+        display: grid;
+        gap: 2px;
+    
+        label {
+          font-size: 14px;
+          font-weight: 700;
+        }
+    
+        input,
+        select {
+          padding: 6px;
+          border-radius: 8px;
+          border: 1px solid $light-blue-color;
+          width: 100%;
+        }
       }
     }
+
+    .options{
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .save-btn{
+        @include btn-style($primary-color);
+      }
+
+      .cancel-btn{
+        @include btn-style($gray-btn-color);
+      }
+  }
 }
+
